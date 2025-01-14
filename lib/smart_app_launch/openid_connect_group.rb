@@ -14,27 +14,24 @@ module SMARTAppLaunch
     short_description 'Demonstrate the ability to authenticate users with OpenID Connect.'
 
     description %(
-      # Background
+      # 背景說明
 
-      OpenID Connect (OIDC) provides the ability to verify the identity of the
-      authorizing user. Within the [SMART App Launch
-      Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html), Applications can
-      request an `id_token` be provided with by including the `openid fhirUser`
-      scopes when requesting authorization.
+      OpenID Connect (OIDC) 提供驗證授權使用者身份的功能。
+      在 [SMART App Launch Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html) 中，
+      應用程式可以透過在授權請求中加入 openid 和 fhirUser 範圍（scopes），來要求返回一個 id_token，
+      用來驗證使用者的身份，例如患者、醫療人員等。
 
-      # Test Methodology
+      # 測試方法
 
-      This sequence validates the id token returned as part of the OAuth 2.0
-      token response. Once the token is decoded, the server's OIDC configuration
-      is retrieved from its well-known configuration endpoint. This
-      configuration is checked to ensure that all required fields are present.
-      Next the keys used to cryptographically sign the id token are retrieved
-      from the url contained in the OIDC configuration. Then the header,
-      payload, and signature of the id token are validated. Finally, the FHIR
-      resource from the `fhirUser` claim in the id token is fetched from the
-      FHIR server.
+      這個測試會驗證 OAuth 2.0 Token 回應中所返回的 id_token。流程如下：
 
-      For more information see:
+      1. 解碼 id_token
+      2. 從 FHIR 伺服器的 well-known 配置端點取得 OIDC 設定，並檢查是否包含所有必須的欄位
+      3. 從 OIDC 配置中提供的網址拿到用來簽章 id_token 的密鑰
+      4. 驗證 id_token 的標頭、內容和簽章是否正確。
+      5. 最後會從 FHIR 伺服器抓取 id_token 裡 fhirUser 欄位對應的 FHIR 資源
+
+      更多資訊請參考：
 
       * [SMART App Launch Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html)
       * [Scopes for requesting identity data](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-identity-data)

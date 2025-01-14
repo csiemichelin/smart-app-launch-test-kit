@@ -8,32 +8,27 @@ module SMARTAppLaunch
     title 'SMART on FHIR Discovery'
     short_description 'Retrieve server\'s SMART on FHIR configuration.'
     description %(
-      # Background
+      # 背景說明
 
-      The #{title} Sequence test looks for authorization endpoints and SMART
-      capabilities as described by the [SMART App Launch
-      Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/conformance/index.html).
-      The SMART launch framework uses OAuth 2.0 to *authorize* apps, like
-      Inferno, to access certain information on a FHIR server. The
-      authorization service accessed at the endpoint allows users to give
-      these apps permission without sharing their credentials with the
-      application itself. Instead, the application receives an access token
-      which allows it to access resources on the server. The access token
-      itself has a limited lifetime and permission scopes associated with it.
-      A refresh token may also be provided to the application in order to
-      obtain another access token. Unlike access tokens, a refresh token is
-      not shared with the resource server. If OpenID Connect is used, an id
-      token may be provided as well. The id token can be used to
-      *authenticate* the user. The id token is digitally signed and allows the
-      identity of the user to be verified.
+      #{title} 測試流程是為了檢查授權端點和 SMART 功能是否符合 [SMART App Launch
+      Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/conformance/index.html) 的規範。
+      SMART 啟動框架利用 OAuth 2.0 來「授權」像 Inferno 這樣的應用程式，
+      允許它們存取 FHIR 伺服器上的特定資訊。透過授權端點，
+      使用者可以授權這些應用程式存取資料，但不需要直接把帳號密碼給應用程式。
+      應用程式會取得一個 access token，用來訪問 FHIR 伺服器上的資源。
+      這個 access token 有一定的有效期限，並且會附帶權限範圍（scopes）。
+      此外，應用程式可能還會拿到一個 refresh token，用來換取新的 access token，
+      但這個 refresh token 不會跟 FHIR 伺服器共享。
+      如果使用了 OpenID Connect，系統可能還會提供一個 id token，
+      這個 token 是用來驗證使用者身份的。ID token 有經過數位簽章，
+      能幫助確認使用者的身份。
 
-      # Test Methodology
+      # 測試方法
 
-      This test suite will examine the SMART on FHIR configuration contained
-      in both the `/metadata` and `/.well-known/smart-configuration`
-      endpoints.
+      這個測試套件會檢查 `/metadata` 和 `/.well-known/smart-configuration` 端點中
+      提供的 SMART on FHIR 設定，確認是否符合規範。
 
-      For more information see:
+      想了解更多細節，可以參考以下文件：
 
       * [SMART App Launch Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/conformance/index.html)
       * [The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)

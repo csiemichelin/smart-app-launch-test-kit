@@ -34,7 +34,7 @@
           }
         ]
       },
-      "value": "false"
+      "value": "true"
     },
     {
       "name": "pkce_code_challenge_method",
@@ -80,8 +80,9 @@
     {
       "name": "standalone_client_secret",
       "type": "text",
-      "optional": true,
-      "value": null
+      "title": "Standalone Client Secret",
+      "description": "Client Secret provided during registration of Inferno as a standalone application",
+      "value": "SAMPLE_CONFIDENTIAL_CLIENT_SECRET"
     },
     {
       "name": "ehr_client_id",

@@ -17,7 +17,7 @@ module SMARTAppLaunch
     input :use_pkce,
           title: 'Proof Key for Code Exchange (PKCE)',
           type: 'radio',
-          default: 'false',
+          default: 'true',
           options: {
             list_options: [
               {

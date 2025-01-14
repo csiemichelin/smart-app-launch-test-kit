@@ -8,25 +8,21 @@ module SMARTAppLaunch
     title 'SMART Token Refresh'
     short_description 'Demonstrate the ability to exchange a refresh token for an access token.'
     description %(
-      # Background
+      # 背景說明
 
-      The #{title} Sequence tests the ability of the system to successfully
-      exchange a refresh token for an access token. Refresh tokens are typically
-      longer lived than access tokens and allow client applications to obtain a
-      new access token Refresh tokens themselves cannot provide access to
-      resources on the server.
+      #{title} 測試會檢查系統是否能成功地使用 refresh token 換取新的 access token。
+      refresh token 通常比 access token 有效期限長，可以讓客戶端應用程式獲取新的 access token，
+      但 refresh token 本身不能用來直接存取伺服器上的資源。
 
-      Token refreshes are accomplished through a `POST` request to the token
-      exchange endpoint as described in the [SMART App Launch
-      Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-5-later-app-uses-a-refresh-token-to-obtain-a-new-access-token).
+      refresh token 的交換是透過 POST 請求發送到 token 交換端點，這在 [SMART App Launch
+      Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html#step-5-later-app-uses-a-refresh-token-to-obtain-a-new-access-token) 中有詳細說明。
 
-      # Test Methodology
+      # 測試方法
 
-      This test attempts to exchange the refresh token for a new access token
-      and verify that the information returned contains the required fields and
-      uses the proper headers.
+      這個測試會嘗試使用 refresh token 換取新的 access token，並確認回應中的資訊是否包含所需的欄位，
+      以及是否使用了正確的標頭。
 
-      For more information see:
+      更多資訊請參見：
 
       * [The OAuth 2.0 Authorization
         Framework](https://tools.ietf.org/html/rfc6749)
