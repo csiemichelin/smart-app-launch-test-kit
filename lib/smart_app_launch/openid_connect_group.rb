@@ -19,7 +19,7 @@ module SMARTAppLaunch
       OpenID Connect (OIDC) 提供驗證授權使用者身份的功能。
       在 [SMART App Launch Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html) 中，
       應用程式可以透過在授權請求中加入 openid 和 fhirUser 範圍（scopes），來要求返回一個 id_token，
-      用來驗證使用者的身份，例如患者、醫療人員等。
+      用來驗證使用者的身份，例如病患、醫療人員等。
 
       # 測試方法
 

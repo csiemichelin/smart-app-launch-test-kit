@@ -10,18 +10,16 @@ module SMARTAppLaunch
     description %(
       # 背景說明
 
-      #{title} 測試流程是為了檢查授權端點和 SMART 功能是否符合 [SMART App Launch
-      Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/conformance/index.html) 的規範。
-      SMART 啟動框架利用 OAuth 2.0 來「授權」像 Inferno 這樣的應用程式，
-      允許它們存取 FHIR 伺服器上的特定資訊。透過授權端點，
-      使用者可以授權這些應用程式存取資料，但不需要直接把帳號密碼給應用程式。
-      應用程式會取得一個 access token，用來訪問 FHIR 伺服器上的資源。
-      這個 access token 有一定的有效期限，並且會附帶權限範圍（scopes）。
-      此外，應用程式可能還會拿到一個 refresh token，用來換取新的 access token，
-      但這個 refresh token 不會跟 FHIR 伺服器共享。
-      如果使用了 OpenID Connect，系統可能還會提供一個 id token，
-      這個 token 是用來驗證使用者身份的。ID token 有經過數位簽章，
-      能幫助確認使用者的身份。
+      #{title} 測試流程旨在檢查授權端點與 SMART 功能是否符合  [SMART App Launch
+      Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/conformance/index.html) 的規範，
+      該框架利用 OAuth 2.0 為像 Inferno 這樣的應用程式進行授權，允許其存取 FHIR 伺服器上的特定資訊。
+      透過授權端點，使用者可以授權這些應用程式存取資料，而無需直接提供帳號密碼，
+      應用程式會獲得一個 access token 來訪問 FHIR 伺服器上的資源，
+      這個 access token 具有一定的有效期限並附帶權限範圍（scopes）。
+      此外，應用程式可能還會取得一個 refresh token 用於交換新的 access token，
+      但這個 refresh token 不會與 FHIR 伺服器共享。
+      如果使用 OpenID Connect，系統還可能提供一個 id token，這個 token 用於驗證使用者身份，
+      並且經過數位簽章來協助確認使用者的真實身份。
 
       # 測試方法
 

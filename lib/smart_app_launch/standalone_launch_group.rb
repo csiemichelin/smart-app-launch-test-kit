@@ -18,12 +18,12 @@ module SMARTAppLaunch
       是一種允許應用程式（例如 Inferno）不依賴現有 EHR session 即可啟動的方法。
       這是 SMART App Launch 框架中兩種啟動方式之一（另一種是 EHR 啟動）。
       應用程式會向授權端點（authorization endpoint）發送指定範圍（scopes）的授權請求，
-      並最終獲取 authorization token，用於存取 FHIR 伺服器上的資源。
+      並最終獲取 access token，用於存取 FHIR 伺服器上的資源。
 
       # 測試方法
 
       Inferno 會先將使用者導向授權端點（authorization endpoint），
-      讓使用者提供必要的授權資訊，例如選擇要操作的患者。
+      讓使用者提供必要的授權資訊，例如選擇要操作的病患。
       授權成功後，Inferno 會將獲取到的授權碼 (code) 交換為 access token。
 
       更多有關 #{title} 的資訊：

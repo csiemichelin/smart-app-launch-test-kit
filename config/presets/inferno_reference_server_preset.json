@@ -14,6 +14,14 @@
       "value": "SAMPLE_PUBLIC_CLIENT_ID"
     },
     {
+      "name": "standalone_client_secret",
+      "type": "text",
+      "title": "Standalone Client Secret",
+      "optional": false,
+      "description": "Client Secret provided during registration of Inferno as a standalone application",
+      "value": "SAMPLE_CONFIDENTIAL_CLIENT_SECRET"
+    },
+    {
       "name": "standalone_requested_scopes",
       "type": "text",
       "value": "launch/patient openid fhirUser offline_access patient/*.read"
@@ -78,13 +86,6 @@
       }
     },
     {
-      "name": "standalone_client_secret",
-      "type": "text",
-      "title": "Standalone Client Secret",
-      "description": "Client Secret provided during registration of Inferno as a standalone application",
-      "value": "SAMPLE_CONFIDENTIAL_CLIENT_SECRET"
-    },
-    {
       "name": "ehr_client_id",
       "type": "text",
       "value": "SAMPLE_PUBLIC_CLIENT_ID"
@@ -97,8 +98,8 @@
     {
       "name": "ehr_client_secret",
       "type": "text",
-      "optional": true,
-      "value": null
+      "optional": false,
+      "value": "SAMPLE_CONFIDENTIAL_CLIENT_SECRET"
     }
   ]
 }
