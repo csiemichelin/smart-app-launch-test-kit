@@ -16,9 +16,6 @@
     {
       "name": "standalone_client_secret",
       "type": "text",
-      "title": "Standalone Client Secret",
-      "optional": false,
-      "description": "Client Secret provided during registration of Inferno as a standalone application",
       "value": "SAMPLE_CONFIDENTIAL_CLIENT_SECRET"
     },
     {

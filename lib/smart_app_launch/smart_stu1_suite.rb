@@ -59,7 +59,7 @@ module SMARTAppLaunch
 
         * Oauth Redirect URI: `#{config.options[:redirect_uri]}`
 
-        記得輸入適當的 scope，讓應用程式能以病患層級存取所有相關資源。
+        記得輸入適當的 scope，讓應用程式能以 patient-level 存取所有相關資源。
         此外，還需要支援 OpenID Connect（openid fhirUser）、refresh tokens（offline_access）
         以及 patient context（launch/patient）。
       )

@@ -9,31 +9,27 @@ require_relative 'token_response_headers_test'
 module SMARTAppLaunch
   class EHRLaunchGroup < Inferno::TestGroup
     id :smart_ehr_launch
-    title 'SMART EHR Launch'
+    title 'SMART EHR Launch With Practitioner Scope'
     short_description 'Demonstrate the ability to authorize an app using the EHR Launch.'
 
     description %(
-      # Background
+      # 背景說明
 
       The [EHR
       Launch](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html#ehr-launch-sequence)
-      is one of two ways in which an app can be launched, the other being
-      Standalone launch. In an EHR launch, the app is launched from an
-      existing EHR session or portal by a redirect to the registered launch
-      URL. The EHR provides the app two parameters:
+      這是 SMART App Launch 框架中兩種啟動方式之一（另一種是 Standalone 啟動）。
+      應用程式是從一個現有的 EHR session 或入口網站啟動的，透過重定向到註冊的啟動 URL。
+      EHR 會提供應用程式兩個參數：
 
-      * `iss` - Which contains the FHIR server url
-      * `launch` - An identifier needed for authorization
+      * `iss` - 包含 FHIR 伺服器的 URL
+      * `launch` - 授權所需的識別碼
 
-      # Test Methodology
+      # 測試方法
 
-      Inferno will wait for the EHR server redirect upon execution. When the
-      redirect is received Inferno will check for the presence of the `iss`
-      and `launch` parameters. The security of the authorization endpoint is
-      then checked and authorization is attempted using the provided `launch`
-      identifier.
+      Inferno 執行時會等待來自 EHR 伺服器的重定向，並在收到重定向後檢查 iss 和 launch 參數是否存在。
+      接著，會檢查授權端點（authorization endpoint）的安全性，並使用提供的 launch 識別碼嘗試授權。
 
-      For more information on the #{title} see:
+      更多有關 #{title} 的資訊：
 
       * [SMART EHR Launch Sequence](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html#ehr-launch-sequence)
     )
@@ -43,13 +39,15 @@ module SMARTAppLaunch
         client_id: {
           name: :ehr_client_id,
           title: 'EHR Launch Client ID',
-          description: 'Client ID provided during registration of Inferno as an EHR launch application'
+          description: 'Client ID provided during registration of Inferno as an EHR launch application',
+          required: true
         },
         client_secret: {
           name: :ehr_client_secret,
           title: 'EHR Launch Client Secret',
           description: 'Client Secret provided during registration of Inferno as an EHR launch application. ' \
-                       'Only for clients using confidential symmetric authentication.'
+                       'Only for clients using confidential symmetric authentication.',
+          required: true
         },
         requested_scopes: {
           name: :ehr_requested_scopes,

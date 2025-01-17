@@ -36,13 +36,15 @@ module SMARTAppLaunch
         client_id: {
           name: :standalone_client_id,
           title: 'Standalone Client ID',
-          description: 'Client ID provided during registration of Inferno as a standalone application'
+          description: 'Client ID provided during registration of Inferno as a standalone application',
+          required: true
         },
         client_secret: {
           name: :standalone_client_secret,
           title: 'Standalone Client Secret',
           description: 'Client Secret provided during registration of Inferno as a standalone application. ' \
-                       'Only for clients using confidential symmetric authentication.'
+                       'Only for clients using confidential symmetric authentication.',
+          required: true
         },
         requested_scopes: {
           name: :standalone_requested_scopes,
