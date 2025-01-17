@@ -95,7 +95,6 @@
     {
       "name": "ehr_client_secret",
       "type": "text",
-      "optional": false,
       "value": "SAMPLE_CONFIDENTIAL_CLIENT_SECRET"
     }
   ]

@@ -21,8 +21,7 @@
     {
       "name": "standalone_client_secret",
       "type": "text",
-      "optional": true,
-      "value": null
+      "value": "SAMPLE_CONFIDENTIAL_CLIENT_SECRET"
     },
     {
       "name": "ehr_client_id",
@@ -37,8 +36,7 @@
     {
       "name": "ehr_client_secret",
       "type": "text",
-      "optional": true,
-      "value": null
+      "value": "SAMPLE_CONFIDENTIAL_CLIENT_SECRET"
     },
     {
       "name": "client_auth_encryption_method",
