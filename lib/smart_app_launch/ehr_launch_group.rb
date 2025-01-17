@@ -39,15 +39,13 @@ module SMARTAppLaunch
         client_id: {
           name: :ehr_client_id,
           title: 'EHR Launch Client ID',
-          description: 'Client ID provided during registration of Inferno as an EHR launch application',
-          required: true
+          description: 'Client ID provided during registration of Inferno as an EHR launch application'
         },
         client_secret: {
           name: :ehr_client_secret,
           title: 'EHR Launch Client Secret',
           description: 'Client Secret provided during registration of Inferno as an EHR launch application. ' \
-                       'Only for clients using confidential symmetric authentication.',
-          required: true
+                       'Only for clients using confidential symmetric authentication.'
         },
         requested_scopes: {
           name: :ehr_requested_scopes,
