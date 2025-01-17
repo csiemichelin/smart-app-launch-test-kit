@@ -31,16 +31,6 @@ module SMARTAppLaunch
       * [Standalone Launch Sequence](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html#standalone-launch-sequence)
     )
 
-
-    input_order :url,
-                :standalone_client_id,
-                :standalone_client_secret,
-                :standalone_requested_scopes,
-                :use_pkce,
-                :pkce_code_challenge_method,
-                :smart_authorization_url,
-                :smart_token_url
-
     config(
       inputs: {
         client_id: {

@@ -34,17 +34,6 @@ module SMARTAppLaunch
       * [SMART EHR Launch Sequence](https://www.hl7.org/fhir/smart-app-launch/1.0.0/index.html#ehr-launch-sequence)
     )
 
-    input_order :url,
-                :ehr_client_id,
-                :ehr_client_secret,
-                :smart_authorization_url,
-                :smart_token_url,
-                :ehr_requested_scopes,
-                :authorization_method,
-                :use_pkce,
-                :pkce_code_challenge_method,
-                :client_auth_type
-
     config(
       inputs: {
         client_id: {
@@ -103,6 +92,11 @@ module SMARTAppLaunch
         token: { name: :ehr_token }
       }
     )
+
+    input_order :url,
+                :ehr_client_id,
+                :ehr_client_secret,
+                :ehr_requested_scopes
 
     test from: :smart_app_launch
     test from: :smart_launch_received
