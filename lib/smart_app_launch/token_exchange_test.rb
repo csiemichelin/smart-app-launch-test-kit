@@ -12,8 +12,9 @@ module SMARTAppLaunch
 
     input :code,
           :smart_token_url,
-          :client_id
-    input :client_secret, optional: true
+          :client_id,
+          :client_secret
+    # input :client_secret, optional: true
     input :use_pkce,
           title: 'Proof Key for Code Exchange (PKCE)',
           type: 'radio',

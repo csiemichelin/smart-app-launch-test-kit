@@ -208,7 +208,6 @@ module SMARTAppLaunch
               inputs: {
                 id_token: { name: :ehr_id_token },
                 client_id: { name: :ehr_client_id },
-                client_secret: { name: :ehr_client_secret },
                 requested_scopes: { name: :ehr_requested_scopes },
                 access_token: { name: :ehr_access_token },
                 smart_credentials: { name: :ehr_smart_credentials }

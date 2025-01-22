@@ -16,9 +16,9 @@ module SMARTAppLaunch
       the Pragma response header field with a value of no-cache to be
       consistent with the requirements of the inital access token exchange.
     )
-    input :client_auth_type
+    input :client_auth_type, :client_secret
     input :client_auth_encryption_method, optional: true
-    input :client_secret, optional: true
+    # input :client_secret, optional: true
 
     def add_credentials_to_request(oauth2_headers, oauth2_params)
       case client_auth_type

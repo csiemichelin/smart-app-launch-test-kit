@@ -16,8 +16,8 @@ module SMARTAppLaunch
       the Pragma response header field with a value of no-cache to be
       consistent with the requirements of the inital access token exchange.
     )
-    input :smart_token_url, :refresh_token, :client_id, :received_scopes
-    input :client_secret, optional: true
+    input :smart_token_url, :refresh_token, :client_id, :received_scopes, :client_secret
+    # input :client_secret, optional: true
     output :smart_credentials, :token_retrieval_time
     makes_request :token_refresh
 
