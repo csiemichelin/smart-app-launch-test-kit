@@ -86,6 +86,11 @@ module SMARTAppLaunch
       }
     )
 
+    input_order :url,
+                :standalone_client_id,
+                :standalone_client_secret,
+                :standalone_requested_scopes
+
     test from: :tls_version_test,
          id: :standalone_auth_tls,
          title: 'OAuth 2.0 authorize endpoint secured by transport layer security',
