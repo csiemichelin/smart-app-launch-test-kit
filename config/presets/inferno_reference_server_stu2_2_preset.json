@@ -11,7 +11,7 @@
     {
       "name": "standalone_client_id",
       "type": "text",
-      "value": "SAMPLE_PUBLIC_CLIENT_ID"
+      "value": "SAMPLE_CONFIDENTIAL_CLIENT_ID"
     },
     {
       "name": "standalone_requested_scopes",
@@ -26,7 +26,7 @@
     {
       "name": "ehr_client_id",
       "type": "text",
-      "value": "SAMPLE_PUBLIC_CLIENT_ID"
+      "value": "SAMPLE_CONFIDENTIAL_CLIENT_ID"
     },
     {
       "name": "ehr_requested_scopes",
