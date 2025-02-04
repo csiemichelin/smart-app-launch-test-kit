@@ -71,8 +71,8 @@ module SMARTAppLaunch
     input_instructions %(
         使用以下資訊將 Inferno 註冊為一個 SMART 應用程式：
 
-        * Launch URI: `#{SMARTAppLaunch::AppLaunchTest.config.options[:launch_uri]}`
-        * Oauth Redirect URI: `#{SMARTAppLaunch::AppRedirectTest.config.options[:redirect_uri]}`
+        * Launch URI: `#{config.options[:launch_uri]}`
+        * Oauth Redirect URI: `#{config.options[:redirect_uri]}`
       )
 
     group do
@@ -104,7 +104,7 @@ module SMARTAppLaunch
         
         在測試前，需要將 Inferno 註冊為一個機密客戶端，並使用以下資訊：
 
-        * Oauth Redirect URI: `#{SMARTAppLaunch::AppRedirectTest.config.options[:redirect_uri]}`
+        * Oauth Redirect URI: `#{config.options[:redirect_uri]}`
 
         此情境相關的實作規範包括：
 
@@ -207,8 +207,8 @@ module SMARTAppLaunch
 
         在測試前，需要將 Inferno 註冊為一個 EHR 啟動的機密客戶端，並使用以下資訊：
 
-        * Launch URI: `#{SMARTAppLaunch::AppLaunchTest.config.options[:launch_uri]}`
-        * Redirect URI: `#{SMARTAppLaunch::AppRedirectTest.config.options[:redirect_uri]}`
+        * Launch URI: `#{config.options[:launch_uri]}`
+        * Redirect URI: `#{config.options[:redirect_uri]}`
 
         如果你的 EHR 系統使用 Internet Explorer 11 顯示嵌入的應用程式，請參考 [instructions on how to complete the EHR Practitioner App
         test](https://github.com/onc-healthit/onc-certification-g10-test-kit/wiki/Completing-EHR-Practitioner-App-test-in-Internet-Explorer/).
