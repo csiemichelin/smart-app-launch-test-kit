@@ -3,15 +3,11 @@ module SMARTAppLaunch
     id :smart_cors_openid_fhir_user_claim
     title 'SMART FHIR User REST API Endpoint Enables Cross-Origin Resource Sharing (CORS)'
     description %(
-      The SMART [Considerations for Cross-Origin Resource Sharing (CORS) support](http://hl7.org/fhir/smart-app-launch/STU2.2/app-launch.html#considerations-for-cross-origin-resource-sharing-cors-support)
-      specifies that servers that support purely browser-based apps SHALL enable Cross-Origin Resource Sharing (CORS)
-      as follows:
+      SMART規範要求支援純瀏覽器應用的伺服器，必須啟用 [CORS（Cross-Origin Resource Sharing）](http://hl7.org/fhir/smart-app-launch/STU2.2/app-launch.html#considerations-for-cross-origin-resource-sharing-cors-support)。
+        
+        - 具體來說，CORS 設定必須允許來自客戶端註冊來源的請求，並且允許訪問 token 端點及 FHIR REST API 端點。
 
-        - For requests from a client's registered origin(s), CORS configuration permits access to the token
-          endpoint and to FHIR REST API endpoints.
-
-      This test verifies that a request to the FHIR REST API endpoint for the FHIR user is returned with the appropriate
-      CORS header.
+      這個測試會檢查對 FHIR REST API 端點的請求是否包含正確的 CORS header 回應。
     )
     optional
 

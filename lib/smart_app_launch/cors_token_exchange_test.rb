@@ -2,14 +2,11 @@ module SMARTAppLaunch
   class CORSTokenExchangeTest < Inferno::Test
     title 'SMART Token Endpoint Enables Cross-Origin Resource Sharing (CORS)'
     description %(
-      The SMART [Considerations for Cross-Origin Resource Sharing (CORS) support](http://hl7.org/fhir/smart-app-launch/STU2.2/app-launch.html#considerations-for-cross-origin-resource-sharing-cors-support)
-      specifies that servers that support purely browser-based apps SHALL enable Cross-Origin Resource Sharing (CORS)
-      as follows:
+      SMART規範要求支援純瀏覽器應用的伺服器，必須啟用 [CORS（Cross-Origin Resource Sharing）](http://hl7.org/fhir/smart-app-launch/STU2.2/app-launch.html#considerations-for-cross-origin-resource-sharing-cors-support)。
+        
+        - 具體來說，CORS 設定必須允許來自客戶端註冊來源的請求，並且允許訪問 token 端點。
 
-        - For requests from a client's registered origin(s), CORS configuration permits access to the token
-          endpoint
-
-      This test verifies that the token endpoint contains the appropriate CORS header in the response.
+      這個測試會檢查 token 端點的回應是否正確地加上了 CORS header。
     )
     id :smart_cors_token_exchange
 

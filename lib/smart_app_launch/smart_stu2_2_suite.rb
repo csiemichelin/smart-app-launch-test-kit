@@ -51,7 +51,7 @@ module SMARTAppLaunch
       如果使用非對稱的用戶端驗證，請將 Inferno 註冊到以下的 JWK Set URL:
       * `#{Inferno::Application[:base_url]}/custom/smart_stu2_2/.well-known/jwks.json`
 
-      **NOTE:** 此測試套件目前不會確認伺服器是否正確處理 [CORS 支援](http://hl7.org/fhir/smart-app-launch/app-launch.html#considerations-for-cross-origin-resource-sharing-cors-support). 的請求 
+      **NOTE:** 此測試套件目前不會確認伺服器是否正確處理 [CORS 支援](http://hl7.org/fhir/smart-app-launch/app-launch.html#considerations-for-cross-origin-resource-sharing-cors-support) 的請求 
     DESCRIPTION
 
     input_instructions %(
