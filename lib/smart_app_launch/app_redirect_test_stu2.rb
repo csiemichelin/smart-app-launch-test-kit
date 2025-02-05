@@ -5,14 +5,10 @@ module SMARTAppLaunch
   class AppRedirectTestSTU2 < AppRedirectTest
     id :smart_app_redirect_stu2
     description %(
-      Client browser redirected from OAuth server to redirect URI of client
-      app as described in SMART authorization sequence.
+      OAuth 伺服器會將用戶端瀏覽器重導向至用戶端應用程式的 Redirect URI，以符合 SMART 授權流程的規範。
 
-      Client SHALL use either the HTTP GET or the HTTP POST method to send the
-      Authorization Request to the Authorization Server.
-
-      [Authorization Code
-      Request](http://hl7.org/fhir/smart-app-launch/STU2/app-launch.html#request-4)
+      客戶端必須使用 HTTP GET 或 HTTP POST 方法向授權伺服器發送授權請求，進行授權碼交換([Authorization Code
+      Request](http://hl7.org/fhir/smart-app-launch/STU2/app-launch.html#request-4))。
     )
 
     input :authorization_method,
