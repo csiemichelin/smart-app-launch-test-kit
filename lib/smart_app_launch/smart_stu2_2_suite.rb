@@ -52,6 +52,7 @@ module SMARTAppLaunch
       * `#{Inferno::Application[:base_url]}/custom/smart_stu2_2/.well-known/jwks.json`
 
       **NOTE:** 此測試套件目前不會確認伺服器是否正確處理 [CORS 支援](http://hl7.org/fhir/smart-app-launch/app-launch.html#considerations-for-cross-origin-resource-sharing-cors-support). 的請求 
+    DESCRIPTION
 
     input_instructions %(
       使用以下資訊將 Inferno 註冊為一個 SMART 應用程式：
