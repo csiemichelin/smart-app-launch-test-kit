@@ -76,6 +76,9 @@ module SMARTAppLaunch
 
         * Launch URI: `#{config.options[:launch_uri]}`
         * Oauth Redirect URI: `#{config.options[:redirect_uri]}`
+
+        如果使用非對稱的用戶端驗證，請將 Inferno 註冊到以下的 JWK Set URL:
+        * `#{Inferno::Application[:base_url]}/custom/smart_stu2/.well-known/jwks.json`
       )
 
     group do
@@ -87,6 +90,9 @@ module SMARTAppLaunch
         將 Inferno 註冊為一個 standalone 的應用程式，使用以下資訊：
 
         * Oauth Redirect URI: `#{config.options[:redirect_uri]}`
+
+        如果使用非對稱的用戶端驗證，請將 Inferno 註冊到以下的 JWK Set URL:
+        * `#{Inferno::Application[:base_url]}/custom/smart_stu2/.well-known/jwks.json`
 
         記得輸入適當的 scope，讓應用程式能以 patient-level 存取所有相關資源。
         此外，還需要支援 OpenID Connect（openid fhirUser）、refresh tokens（offline_access）
@@ -187,6 +193,9 @@ module SMARTAppLaunch
 
         * SMART Launch URI: `#{config.options[:launch_uri]}`
         * OAuth Redirect URI: `#{config.options[:redirect_uri]}`
+
+        如果使用非對稱的用戶端驗證，請將 Inferno 註冊到以下的 JWK Set URL:
+        * `#{Inferno::Application[:base_url]}/custom/smart_stu2/.well-known/jwks.json`
 
         記得輸入適當的 scope，讓應用程式能以 user-level 存取所有相關資源，
         如果使用的是 SMART v2，則必須使用 v2 格式的 scope。
