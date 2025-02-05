@@ -2,8 +2,7 @@ module SMARTAppLaunch
   class AppLaunchTest < Inferno::Test
     title 'EHR server redirects client browser to Inferno app launch URI'
     description %(
-      Client browser sent from EHR server to app launch URI of client app as
-      described in SMART EHR Launch Sequence.
+      EHR 伺服器會依照 SMART EHR 啟動流程，將用戶端瀏覽器導向應用程式的 launch URI。
     )
     id :smart_app_launch
 

@@ -2,7 +2,7 @@ module SMARTAppLaunch
   class CodeReceivedTest < Inferno::Test
     title 'OAuth server sends code parameter'
     description %(
-      Code is a required querystring parameter on the redirect.
+      在 OAuth 授權流程中，當使用者成功驗證並授權後，`Code` 是 Redirect URI 上的必要查詢參數，用於後續的 Token 交換步驟。
     )
     id :smart_code_received
 

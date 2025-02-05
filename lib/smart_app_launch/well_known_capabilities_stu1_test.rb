@@ -4,9 +4,7 @@ module SMARTAppLaunch
     id :well_known_capabilities_stu1
     input :well_known_configuration
     description %(
-      The JSON from .well-known/smart-configuration contains the following
-      required fields: `authorization_endpoint`, `token_endpoint`,
-      `capabilities`
+      `.well-known/smart-configuration` 這個網址回傳的 JSON 需要包含以下必填欄位：`authorization_endpoint`、`token_endpoint` 和 `capabilities`。
     )
 
     def required_capabilities

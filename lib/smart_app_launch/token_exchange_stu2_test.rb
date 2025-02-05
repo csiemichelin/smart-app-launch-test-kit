@@ -5,11 +5,8 @@ module SMARTAppLaunch
   class TokenExchangeSTU2Test < TokenExchangeTest
     title 'OAuth token exchange request succeeds when supplied correct information'
     description %(
-      After obtaining an authorization code, the app trades the code for an
-      access token via HTTP POST to the EHR authorization server's token
-      endpoint URL, using content-type application/x-www-form-urlencoded, as
-      described in section [4.1.3 of
-      RFC6749](https://tools.ietf.org/html/rfc6749#section-4.1.3).
+      當應用程式拿到授權代碼後，它會透過 HTTP POST 請求，把授權代碼傳送到 EHR 授權伺服器的 token 端點，並交換取得 access token。這個過程會使用 `application/x-www-form-urlencoded` 的格式，並遵守 OAuth 2.0 的標準和 [4.1.3 of
+      RFC6749](https://tools.ietf.org/html/rfc6749#section-4.1.3) 中的標準規範，確保授權和 token 交換過程是安全的。
     )
     id :smart_token_exchange_stu2
 

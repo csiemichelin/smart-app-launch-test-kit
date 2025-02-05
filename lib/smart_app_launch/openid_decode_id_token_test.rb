@@ -3,7 +3,7 @@ module SMARTAppLaunch
     id :smart_openid_decode_id_token
     title 'ID token can be decoded'
     description %(
-        Verify that the ID token is a properly constructed JWT.
+        確認 ID token 是否是一個格式正確的 JWT（JSON Web Token）。
       )
 
     input :id_token

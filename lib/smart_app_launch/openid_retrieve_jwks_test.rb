@@ -3,8 +3,7 @@ module SMARTAppLaunch
     id :smart_openid_retrieve_jwks
     title 'JWKS can be retrieved'
     description %(
-        Verify that the JWKS can be retrieved from the `jwks_uri` from the
-        OpenID Connect well-known configuration.
+        確認是否可以從 OpenID Connect 的 .well-known 設定中的 `jwks_uri` 取得 JWKS（JSON Web Key Set）。
       )
 
     input :openid_jwks_uri

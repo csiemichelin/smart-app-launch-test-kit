@@ -4,11 +4,9 @@ module SMARTAppLaunch
     id :well_known_capabilities_stu2
     input :well_known_configuration
     description %(
-      The JSON from .well-known/smart-configuration contains the following
-      required fields: `authorization_endpoint`, `token_endpoint`,
-      `capabilities`, `grant_types_supported`, `code_challenge_methods_supported`.
-      If the `sso-openid-connect` capability is supported, then `issuer` and `jwks_uri` must be
-      present. If `sso-openid-connect` capability is not supported, then `issuer` must be omitted.
+      `.well-known/smart-configuration` 這個網址回傳的 JSON 需要包含以下必填欄位：`authorization_endpoint`、`token_endpoint`、`capabilities`、`grant_types_supported` 和 `code_challenge_methods_supported`。
+      如果支援 `sso-openid-connect` 功能，則 `issuer` 和 `jwks_uri` 必須存在；
+      如果不支援 `sso-openid-connect`，則 `issuer` 必須省略。
     )
  
     def required_capabilities

@@ -3,8 +3,7 @@ module SMARTAppLaunch
     id :smart_openid_retrieve_configuration
     title 'OpenID Connect well-known configuration can be retrieved'
     description %(
-        Verify that the OpenId Connect configuration can be retrieved as
-        described in the OpenID Connect Discovery 1.0 documentation.
+        確認 OpenID Connect 設定是否可以按照 OpenID Connect Discovery 1.0 文件的方式取得。
       )
 
     input :id_token_payload_json

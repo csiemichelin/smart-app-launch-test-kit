@@ -6,13 +6,14 @@ module SMARTAppLaunch
 
     title 'Token exchange response body contains required information encoded in JSON'
     description %(
-      The EHR authorization server shall return a JSON structure that includes
-      an access token or a message indicating that the authorization request
-      has been denied. `access_token`, `token_type`, and `scope` are required.
-      `token_type` must be Bearer. `expires_in` is required for token
-      refreshes.
+      EHR 授權伺服器在處理完授權請求後，會回傳一個 JSON 結構，這個結構會包含以下欄位：
 
-      The format of the optional `fhirContext` field is validated if present.
+      1. `access_token`：授權代碼交換成功後得到的 access token
+      2. `token_type`：必須是 Bearer，表示 access token 的類型
+      3. `scope`：表示授權範圍，即應用程式能夠存取的資源範圍
+      4. `expires_in`：表示 token 的有效期，這在 refresh token 時是必需的
+
+      如果有包含 fhirContext 這個欄位，那則會檢查其是否符合特定的格式。
     )
     id :smart_token_response_body
 

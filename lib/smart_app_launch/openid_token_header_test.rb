@@ -3,10 +3,8 @@ module SMARTAppLaunch
     id :smart_openid_token_header
     title 'ID token header contains required information'
     description %(
-      Verify that the id token header indicates that the token is signed using
-      RSA SHA-256 [as required by the SMART app launch
-      framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-identity-data)
-      and that the key used to sign the token can be identified in the JWKS.
+      確認 ID token 的 header 顯示該 token 是使用 RSA SHA-256 簽署的（符合 [SMART app launch framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-identity-data) 的要求），
+      並且能在 JWKS（JSON Web Key Set）中找到對應的簽署金鑰。
     )
 
     input :id_token_header_json, :openid_rsa_keys_json

@@ -2,8 +2,7 @@ module SMARTAppLaunch
   class LaunchReceivedTest < Inferno::Test
     title 'EHR server sends launch parameter'
     description %(
-      The `launch` URL parameter associates the app's authorization request with
-      the current EHR session.
+      `launch` URL 參數用來將應用程式的授權請求與當前的 EHR session 關聯起來。
     )
     id :smart_launch_received
 

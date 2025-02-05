@@ -6,14 +6,13 @@ module SMARTAppLaunch
     id :smart_openid_token_payload
     title 'ID token payload has required claims and a valid signature'
     description %(
-      The `iss`, `sub`, `aud`, `exp`, and `iat` claims are required.
-      Additionally:
+      ID token 必須包含以下欄位：`iss`、`sub`、`aud`、`exp`、`iat`。
+      另外需符合以下規則：
 
-      - `iss` must match the `issuer` from the OpenID Connect well-known
-        configuration
-      - `aud` must match the client ID
-      - `exp` must represent a time in the future
-      - `sub` must be a non-blank string not exceeding 255 characters in length
+      - `iss` 必須與 OpenID Connect .well-known 設定中的 `issuer` 相同。
+      - `aud` 必須與 client ID 匹配。
+      - `exp` 必須是未來的時間。
+      - `sub` 必須是非空字串，且長度不能超過 255 個字元。
     )
 
     REQUIRED_CLAIMS = ['iss', 'sub', 'aud', 'exp', 'iat'].freeze

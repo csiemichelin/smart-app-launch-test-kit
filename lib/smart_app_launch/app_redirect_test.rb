@@ -4,8 +4,7 @@ module SMARTAppLaunch
   class AppRedirectTest < Inferno::Test
     title 'OAuth server redirects client browser to app redirect URI'
     description %(
-      Client browser redirected from OAuth server to redirect URI of client
-      app as described in SMART authorization sequence.
+      OAuth 伺服器會將用戶端瀏覽器重導向至用戶端應用程式的 Redirect URI，以符合 SMART 授權流程的規範。
     )
     id :smart_app_redirect
 

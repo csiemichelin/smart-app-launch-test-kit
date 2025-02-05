@@ -3,14 +3,11 @@ module SMARTAppLaunch
     id :smart_openid_required_configuration_fields
     title 'OpenID Connect well-known configuration contains all required fields'
     description %(
-      Verify that the OpenId Connect configuration contains the following
-      required fields: `issuer`, `authorization_endpoint`, `token_endpoint`,
-      `jwks_uri`, `response_types_supported`, `subject_types_supported`, and
-      `id_token_signing_alg_values_supported`.
+      確認 OpenID Connect 設定包含以下必要欄位：`issuer`、`authorization_endpoint`、`token_endpoint`、`jwks_uri`、`response_types_supported`、`subject_types_supported`、`id_token_signing_alg_values_supported`。
 
-      Additionally, the [SMART App Launch
+      另外，[SMART App Launch
       Framework](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-identity-data)
-      requires that the RSA SHA-256 signing algorithm be supported.
+      要求必須支援 RSA SHA-256 簽名演算法。
     )
 
     input :openid_configuration_json

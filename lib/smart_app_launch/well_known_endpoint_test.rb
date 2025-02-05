@@ -7,8 +7,7 @@ module SMARTAppLaunch
     title 'FHIR server makes SMART configuration available from well-known endpoint'
     id :well_known_endpoint
     description %(
-      The authorization endpoints accepted by a FHIR resource server can
-      be exposed as a Well-Known Uniform Resource Identifier
+      FHIR server 的授權端點可以用一個固定的網址（well-known URI）來公開，讓其他系統知道該去哪裡進行授權。
     )
     input :url,
           title: 'FHIR Endpoint',

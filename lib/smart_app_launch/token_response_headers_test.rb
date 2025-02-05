@@ -2,9 +2,7 @@ module SMARTAppLaunch
   class TokenResponseHeadersTest < Inferno::Test
     title 'Response includes correct HTTP Cache-Control and Pragma headers'
     description %(
-      The authorization servers response must include the HTTP Cache-Control
-      response header field with a value of no-store, as well as the Pragma
-      response header field with a value of no-cache.
+      授權伺服器的回應裡必須包含 `Cache-Control: no-store` 和 `Pragma: no-cache` 這兩個 HTTP header，確保瀏覽器或其他快取機制不會儲存這些敏感資訊。
     )
     id :smart_token_response_headers
 

@@ -95,9 +95,8 @@ module SMARTAppLaunch
          id: :standalone_auth_tls,
          title: 'OAuth 2.0 authorize endpoint secured by transport layer security',
          description: %(
-           Apps MUST assure that sensitive information (authentication secrets,
-           authorization codes, tokens) is transmitted ONLY to authenticated
-           servers, over TLS-secured channels.
+           應用程式必須確保敏感資訊（authentication secrets、
+           authorization codes、tokens）只能透過 TLS 加密通道傳輸至已驗證的伺服器，以確保安全性。
          ),
          config: {
            inputs: { url: { name: :smart_authorization_url } },
@@ -109,9 +108,8 @@ module SMARTAppLaunch
          id: :standalone_token_tls,
          title: 'OAuth 2.0 token endpoint secured by transport layer security',
          description: %(
-           Apps MUST assure that sensitive information (authentication secrets,
-           authorization codes, tokens) is transmitted ONLY to authenticated
-           servers, over TLS-secured channels.
+           應用程式必須確保敏感資訊（authentication secrets、
+           authorization codes、tokens）只能透過 TLS 加密通道傳輸至已驗證的伺服器，以確保安全性。
          ),
          config: {
            inputs: { url: { name: :smart_token_url } },

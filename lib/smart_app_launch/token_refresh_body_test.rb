@@ -7,12 +7,10 @@ module SMARTAppLaunch
     id :smart_token_refresh_body
     title 'Token refresh response contains all required fields'
     description %(
-      The EHR authorization server SHALL return a JSON structure that includes
-      an access token or a message indicating that the authorization request
-      has been denied. `access_token`, `expires_in`, `token_type`, and `scope` are
-      required. `access_token` must be `Bearer`.
-
-      Scopes returned must be a strict subset of the scopes granted in the original launch.
+      EHR 授權伺服器在回應時，應該要回傳一個 JSON 結構，裡面包含 `access_token`，或者提供一個訊息表示授權請求被拒絕。
+      其中 `access_token` 必須是 `Bearer` 類型，並且還需要包含 `expires_in`、`token_type` 和 `scope` 這些欄位。
+      
+      而 `scope` 的值必須是原始授權請求中核准範圍的子集，不能超出原本的授權範圍。
     )
     input :received_scopes
     output :refresh_token, :access_token, :token_retrieval_time, :expires_in, :received_scopes

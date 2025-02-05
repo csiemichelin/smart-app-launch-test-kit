@@ -3,9 +3,8 @@ module SMARTAppLaunch
     id :smart_openid_fhir_user_claim
     title 'FHIR resource representing the current user can be retrieved'
     description %(
-      Verify that the `fhirUser` claim is present in the ID token and that the
-      FHIR resource it refers to can be retrieved. The `fhirUser` claim must be
-      the url for a Patient, Practitioner, RelatedPerson, or Person resource
+      確認 ID token 中是否包含 `fhirUser` 欄位，並且能成功取得它所指向的 FHIR 資源。
+      `fhirUser` 必須是一個 URL，對應到 Patient、Practitioner、RelatedPerson 或 Person 這四種 FHIR 資源之一。
     )
 
     input :id_token_payload_json, :requested_scopes, :url

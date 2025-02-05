@@ -48,6 +48,9 @@ module SMARTAppLaunch
 
       * SMART Launch URI: `#{config.options[:launch_uri]}`
       * OAuth Redirect URI: `#{config.options[:redirect_uri]}`
+
+      如果使用非對稱的用戶端驗證，請將 Inferno 註冊到以下的 JWK Set URL:
+      * `#{Inferno::Application[:base_url]}/custom/smart_stu2/.well-known/jwks.json`
     DESCRIPTION
 
     # input_instructions %(

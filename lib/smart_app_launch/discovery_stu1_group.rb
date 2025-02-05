@@ -43,8 +43,7 @@ module SMARTAppLaunch
 
       title 'Conformance/CapabilityStatement provides OAuth 2.0 endpoints'
       description %(
-        If a server requires SMART on FHIR authorization for access, its
-        metadata must support automated discovery of OAuth2 endpoints.
+        如果 FHIR server 要使用 SMART on FHIR 授權機制來控制存取權限，那它的 metadata 裡面必須提供 OAuth2 相關的網址，讓其他系統能夠自動找到授權和驗證的端點。
       )
       input :url
       output :capability_authorization_url,
@@ -105,9 +104,7 @@ module SMARTAppLaunch
     test do
       title 'OAuth 2.0 Endpoints in the conformance statement match those from the well-known configuration'
       description %(
-        The server SHALL convey the FHIR OAuth authorization endpoints that are listed
-        in the table below to app developers. The server SHALL use both a FHIR
-        CapabilityStatement and A Well-Known Uris JSON file.
+        FHIR 伺服器必須透過 `CapabilityStatement` 和 `/.well-known/smart-configuration` 這兩種方式，提供 OAuth 授權端點資訊，讓應用程式開發者能夠發現並使用這些端點進行身份驗證與授權。
       )
 
       input :well_known_authorization_url,

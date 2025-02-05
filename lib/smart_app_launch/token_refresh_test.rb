@@ -7,14 +7,8 @@ module SMARTAppLaunch
     id :smart_token_refresh
     title 'Server successfully refreshes the access token when optional scope parameter omitted'
     description %(
-      Server successfully exchanges refresh token at OAuth token endpoint
-      without providing scope in the body of the request.
-
-      Although not required in the token refresh portion of the SMART App
-      Launch Guide, the token refresh response should include the HTTP
-      Cache-Control response header field with a value of no-store, as well as
-      the Pragma response header field with a value of no-cache to be
-      consistent with the requirements of the inital access token exchange.
+      伺服器應該要能夠與 OAuth token 端點成功交換 refresh token，且請求的 body 不需要提供 scope。
+      雖然 SMART App Launch Guide 並未強制要求 refresh token 交換時包含 Cache-Control 的 header，但為了與 access token 交換的要求保持一致，回應應該包含 `Cache-Control: no-store` 和 `Pragma: no-cache`，以確保敏感資訊不會被快取。
     )
     input :smart_token_url, :refresh_token, :client_id, :received_scopes, :client_secret
     # input :client_secret, optional: true
