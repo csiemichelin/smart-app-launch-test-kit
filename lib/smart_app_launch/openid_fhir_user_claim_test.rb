@@ -24,6 +24,9 @@ module SMARTAppLaunch
       payload = JSON.parse(id_token_payload_json)
       fhir_user = payload['fhirUser']
 
+      output id_token_payload: payload
+      output id_token_fhir_user: fhir_user
+
       valid_fhir_user_resource_types = ['Patient', 'Practitioner', 'RelatedPerson', 'Person']
 
       assert fhir_user.present?, 'ID token does not contain `fhirUser` claim'
@@ -34,9 +37,6 @@ module SMARTAppLaunch
 
       assert valid_fhir_user_resource_types.include?(fhir_user_resource_type),
              "ID token `fhirUser` claim does not refer to a valid resource type: #{fhir_user}"
-
-      output id_token_payload: payload
-      output id_token_fhir_user: fhir_user
 
       fhir_read(fhir_user_resource_type, fhir_user_id)
 
