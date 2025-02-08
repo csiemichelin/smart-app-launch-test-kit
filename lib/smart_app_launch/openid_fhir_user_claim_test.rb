@@ -24,9 +24,11 @@ module SMARTAppLaunch
       payload = JSON.parse(id_token_payload_json)
       fhir_user = payload['fhirUser']
 
+      output id_token_fhir_user_1: fhir_user
+
       valid_fhir_user_resource_types = ['Patient', 'Practitioner', 'RelatedPerson', 'Person']
 
-      if !fhir_user.present?
+      if !fhir_user.blank?
         # fhir_user 有值，進行正常檢查
         fhir_user_segments = fhir_user.split('/')
         fhir_user_resource_type = fhir_user_segments[-2]
