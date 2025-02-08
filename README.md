@@ -202,71 +202,6 @@ performs a token refresh.
 * `include_scopes`: (`true/false`) Whether to include scopes in the refresh
   request
 
-### Backend Services Authorization Group
-The [Backend Services Authorization Group](https://github.com/inferno-framework/smart-app-launch-test-kit/blob/main/lib/smart_app_launch/backend_services_authorization_group.rb)
-is only part of SMART App Launch STU 2.0. It is used when autonomous or
-semi-autonomous backend services (clients) need to access resources from FHIR
-servers that have pre-authorized, defined scopes of access.  This group appplies
-a client credentials flow using confidential client asymmetric
-authentication and JSON Web Token (JWT) assertions to retrieve an access token
-for system resources.
-
-**id:** `backend_services_authorization`
-
-**inputs:** `smart_token_url`, `backend_services_client_id`,
-`backend_services_requested_scope`, `client_auth_encryption_method`, `backend_services_jwks_kid` (optional)
-
-**outputs:**  `bearer_token`
-
-### Token Introspection Group 
-The [Token Introspection Group](https://github.com/inferno-framework/smart-app-launch-test-kit/blob/main/lib/smart_app_launch/token_introspection_group.rb)
-is only part of SMART App Launch STU 2.0 and is divided into three subgroups that
-can be run collectively or independently, depending on the constraints of the environment
-under test. 
-
-**id:** `smart_token_introspection`
-
-#### Token Introspection Access Token Group
-The [Token Introspection Access Token Group](https://github.com/inferno-framework/smart-app-launch-test-kit/blob/main/lib/smart_app_launch/token_introspection_access_token_group.rb) 
-reuses tests from the Discovery and Standalone Launch groups to retrieve the
-token endpoint and an access token for introspection.  This group is optional.   
-
-**id:** `smart_token_introspection_access_token_group`
-
-**inputs:** `url`, `client_id`, `client_secret`, `requested_scopes`, `use_pkce`,
-`pkce_code_challenge_method`, `authorization_method`, `client_auth_type`, `client_auth_encryption_method`
-
-**outputs:** `standalone_access_token`
-
-#### Token Introspection Request Group
-The [Token Introspection Request Group](https://github.com/inferno-framework/smart-app-launch-test-kit/blob/main/lib/smart_app_launch/token_introspection_request_group.rb) 
-sends introspection requests for both a valid and invalid access token to the
-authorization server and ensure the appropriate HTTP response is returned.  This
-group is optional but recommended. 
-
-**id:** `smart_token_introspection_request_group`
-
-**inputs:** `well_known_introspection_url`, `custom_authorization_header`,
-`optional_introspection_request_params`, `standalone_access_token` 
-
-**outputs:**
-* `active_token_introspection_response_body`
-* `invalid_token_introspection_response_body`
-
-#### Token Introspection Response Group
-The [Token Introspection Response Group](https://github.com/inferno-framework/smart-app-launch-test-kit/blob/main/lib/smart_app_launch/token_introspection_response_group.rb)
-validates the token introspection responses returned from the authorization
-server.  This group is required to demonstrate token introspection capabilities. 
-
-**id:** `smart_token_introspection_response_group`
-
-**inputs:** `standalone_client_id`, `standalone_received_scopes`,
-`standalone_id_token`, `standalone_patient_id`, `standalone_encounter_id`,
-`active_token_introspection_response_body`,
-`invalid_token_introspection_response_body`
-
-**outputs:** none
-
 
 ## License
 
@@ -281,7 +216,264 @@ under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
 CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 
-## Trademark Notice
 
-HL7, FHIR and the FHIR [FLAME DESIGN] are the registered trademarks of Health
-Level Seven International and their use does not constitute endorsement by HL7.
+### Aidbox Inferno Test
+#### STU1
+```
+POST /$load
+content-type: application/json
+accept: application/json
+
+{
+  "source": "https://storage.googleapis.com/aidbox-public/smartbox/rows.ndjson.gz"
+}
+```
+
+```
+PUT /User/test-user
+content-type: application/json
+accept: application/json
+
+{
+  "email": "example@mail.com",
+  "password": "password",
+  "name": {
+    "givenName": "Amy",
+    "familyName": "Shaw"
+  },
+  "active": true,
+  "fhirUser": {
+    "id": "test-pt-1",
+    "resourceType": "Patient"
+  },
+  "id": "test-user"
+}
+```
+
+```
+PUT /
+content-type: application/json
+accept: application/json
+
+[
+  {
+    "id": "inferno-patient-smart-app",
+    "resourceType": "Client",
+    "type": "smart-app",
+    "active": true,
+    "grant_types": [
+      "authorization_code",
+      "basic"
+    ],
+    "auth": {
+      "authorization_code": {
+        "pkce": true,
+        "redirect_uri": "http://192.168.1.16/custom/smart/redirect",
+        "refresh_token": true,
+        "token_format": "jwt",
+        "access_token_expiration": 300
+      }
+    },
+    "scope": ["launch/patient", "openid", "fhirUser", "offline_access", "patient/*.read"],
+    "smart": {
+      "launch_uri": "http://192.168.1.16/custom/smart/launch"
+    },
+    "secret": "verysecret"
+  },
+  {
+    "id": "inferno-client-allow",
+    "link": [
+      {
+        "id": "inferno-patient-smart-app",
+        "resourceType": "Client"
+      }
+    ],
+    "engine": "allow",
+    "resourceType": "AccessPolicy"
+  }
+]
+```
+
+#### STU2
+```
+POST /$load
+content-type: application/json
+accept: application/json
+
+{
+  "source": "https://storage.googleapis.com/aidbox-public/smartbox/rows.ndjson.gz"
+}
+```
+
+```
+PUT /User/test-user
+content-type: application/json
+accept: application/json
+
+{
+  "email": "example@mail.com",
+  "password": "password",
+  "name": {
+    "givenName": "Amy",
+    "familyName": "Shaw"
+  },
+  "active": true,
+  "fhirUser": {
+    "id": "test-pt-1",
+    "resourceType": "Patient"
+  },
+  "id": "test-user"
+}
+```
+
+```
+PUT /
+content-type: application/json
+accept: application/json
+
+[
+  {
+    "id": "inferno-patient-smart-app",
+    "resourceType": "Client",
+    "type": "smart-app",
+    "active": true,
+    "grant_types": [
+      "authorization_code",
+      "basic"
+    ],
+    "auth": {
+      "authorization_code": {
+        "pkce": true,
+        "redirect_uri": "http://192.168.1.16/custom/smart_stu2/redirect",
+        "refresh_token": true,
+        "token_format": "jwt",
+        "access_token_expiration": 300
+      }
+    },
+    "scope": ["launch/patient", "openid", "fhirUser", "offline_access", "patient/*.read"],
+    "smart": {
+      "launch_uri": "http://192.168.1.16/custom/smart_stu2/launch"
+    },
+    "secret": "verysecret"
+  },
+  {
+    "id": "inferno-client-allow",
+    "link": [
+      {
+        "id": "inferno-patient-smart-app",
+        "resourceType": "Client"
+      }
+    ],
+    "engine": "allow",
+    "resourceType": "AccessPolicy"
+  }
+]
+```
+
+#### STU2.2
+```
+POST /$load
+content-type: application/json
+accept: application/json
+
+{
+  "source": "https://storage.googleapis.com/aidbox-public/smartbox/rows.ndjson.gz"
+}
+```
+
+```
+PUT /User/test-user
+content-type: application/json
+accept: application/json
+
+{
+  "email": "example@mail.com",
+  "password": "password",
+  "name": {
+    "givenName": "Amy",
+    "familyName": "Shaw"
+  },
+  "active": true,
+  "fhirUser": {
+    "id": "test-pt-1",
+    "resourceType": "Patient"
+  },
+  "id": "test-user"
+}
+```
+
+```
+PUT /
+content-type: application/json
+accept: application/json
+
+[
+  {
+    "id": "inferno-patient-smart-app",
+    "resourceType": "Client",
+    "type": "smart-app",
+    "active": true,
+    "grant_types": [
+      "authorization_code",
+      "basic"
+    ],
+    "auth": {
+      "authorization_code": {
+        "pkce": true,
+        "redirect_uri": "http://192.168.1.16/custom/smart_stu2_2/redirect",
+        "refresh_token": true,
+        "token_format": "jwt",
+        "access_token_expiration": 300
+      }
+    },
+    "scope": ["launch/patient", "openid", "fhirUser", "offline_access", "patient/*.read"],
+    "smart": {
+      "launch_uri": "http://192.168.1.16/custom/smart_stu2_2/launch"
+    },
+    "secret": "verysecret"
+  },
+  {
+    "id": "inferno-client-allow",
+    "link": [
+      {
+        "id": "inferno-patient-smart-app",
+        "resourceType": "Client"
+      }
+    ],
+    "engine": "allow",
+    "resourceType": "AccessPolicy"
+  }
+]
+```
+
+#### GET EHR Launch URL
+```
+POST /rpc
+content-type: application/json
+accept: application/json
+authorization: Basic aW5mZXJuby1wYXRpZW50LXNtYXJ0LWFwcDp2ZXJ5c2VjcmV0
+
+{
+  "method": "aidbox.smart/get-launch-uri",
+  "params": {
+    "user": "test-user",
+    "iss": "http://192.168.1.16:8080/fhir",
+    "client": "inferno-patient-smart-app",
+    "ctx": {
+      "patient": "test-pt-1"
+    }
+  }
+}
+```
+#### Inferno Input
+```
+FHIR Endpoint: http://192.168.1.16:8080/fhir
+
+Standalone Client ID: inferno-patient-smart-app
+
+Standalone Client Secret: verysecret
+
+EHR Launch Client ID: inferno-patient-smart-app
+
+EHR Launch Client Secret: verysecret
+```
