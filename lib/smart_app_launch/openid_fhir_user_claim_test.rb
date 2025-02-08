@@ -48,7 +48,6 @@ module SMARTAppLaunch
         skip_if !requested_scopes&.include?('fhirUser') || !requested_scopes&.include?('openid'),
                 '`fhirUser` or `openid` scope not requested'
         
-        output message: 'Valid scopes present, proceeding with 200 response'
         # assert_response_status(200) # 符合條件回傳 200
       end
     end
