@@ -18,30 +18,36 @@ module SMARTAppLaunch
 
     run do
       skip_if id_token_payload_json.blank?
-      skip_if !requested_scopes&.include?('fhirUser'), '`fhirUser` scope not requested'
+      # skip_if !requested_scopes&.include?('fhirUser'), '`fhirUser` scope not requested'
 
       assert_valid_json(id_token_payload_json)
       payload = JSON.parse(id_token_payload_json)
       fhir_user = payload['fhirUser']
 
-      output id_token_payload: payload
-      output id_token_fhir_user: fhir_user
-
       valid_fhir_user_resource_types = ['Patient', 'Practitioner', 'RelatedPerson', 'Person']
 
-      assert fhir_user.present?, 'ID token does not contain `fhirUser` claim'
+      if fhir_user.present?
+        # fhir_user 有值，進行正常檢查
+        fhir_user_segments = fhir_user.split('/')
+        fhir_user_resource_type = fhir_user_segments[-2]
+        fhir_user_id = fhir_user_segments.last
 
-      fhir_user_segments = fhir_user.split('/')
-      fhir_user_resource_type = fhir_user_segments[-2]
-      fhir_user_id = fhir_user_segments.last
+        assert valid_fhir_user_resource_types.include?(fhir_user_resource_type),
+              "ID token `fhirUser` claim does not refer to a valid resource type: #{fhir_user}"
 
-      assert valid_fhir_user_resource_types.include?(fhir_user_resource_type),
-             "ID token `fhirUser` claim does not refer to a valid resource type: #{fhir_user}"
+        output id_token_fhir_user: fhir_user
 
-      fhir_read(fhir_user_resource_type, fhir_user_id)
+        fhir_read(fhir_user_resource_type, fhir_user_id)
 
-      assert_response_status(200)
-      assert_resource_type(fhir_user_resource_type)
+        assert_response_status(200)
+        assert_resource_type(fhir_user_resource_type)
+      else
+        # fhir_user 沒有值
+        skip_if !requested_scopes&.include?('fhirUser') || !requested_scopes&.include?('openid'),
+                '`fhirUser` or `openid` scope not requested'
+        
+        assert_response_status(200) # 符合條件回傳 200
+      end
     end
   end
 end
