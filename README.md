@@ -219,6 +219,8 @@ specific language governing permissions and limitations under the License.
 
 ### Aidbox Inferno Test
 #### STU1
+##### 1. 上傳測試用的病人資料到 Aidbox，這些資料由 Health Samurai 團隊維護，存放在 Google Storage。
+![alt text](/images/image1.png)
 ```
 POST /$load
 content-type: application/json
@@ -228,7 +230,8 @@ accept: application/json
   "source": "https://storage.googleapis.com/aidbox-public/smartbox/rows.ndjson.gz"
 }
 ```
-
+##### 2. 創建一個測試用的使用者 (test-user)，並將其與一個 Patient 資源 (test-pt-1) 相關聯。這個使用者可以用來登入 Aidbox。
+![alt text](/images/image2.png)
 ```
 PUT /User/test-user
 content-type: application/json
@@ -249,7 +252,8 @@ accept: application/json
   "id": "test-user"
 }
 ```
-
+##### 3. 建立一個 Client 資源( 只是 Aidbox 內的 Client 配置，並不會實際創建 APP)，這是用來模擬執行 SMART on FHIR 驗證流程的應用程式（類似 OAuth 客戶端）。它支援 authorization_code 授權類型，啟用了 PKCE，並設定了 Redict URL。注意: grant_types 有設定 authorization_cod 和 basic，代表可以支援 授權碼 換取 access_token 的 OAuth2 授權碼流程，又或是 client id 和 secret Base64 編碼後，用 Authorization header 的值固定。
+![alt text](images/image3.png)
 ```
 PUT /
 content-type: application/json
@@ -295,6 +299,7 @@ accept: application/json
 ```
 
 #### STU2
+##### 1. 上傳測試用的病人資料到 Aidbox，這些資料由 Health Samurai 團隊維護，存放在 Google Storage。
 ```
 POST /$load
 content-type: application/json
@@ -304,7 +309,7 @@ accept: application/json
   "source": "https://storage.googleapis.com/aidbox-public/smartbox/rows.ndjson.gz"
 }
 ```
-
+##### 2. 創建一個測試用的使用者 (test-user)，並將其與一個 Patient 資源 (test-pt-1) 相關聯。這個使用者可以用來登入 Aidbox。
 ```
 PUT /User/test-user
 content-type: application/json
@@ -325,7 +330,7 @@ accept: application/json
   "id": "test-user"
 }
 ```
-
+##### 3. 建立一個 Client 資源( 只是 Aidbox 內的 Client 配置，並不會實際創建 APP)，這是用來模擬執行 SMART on FHIR 驗證流程的應用程式（類似 OAuth 客戶端）。它支援 authorization_code 授權類型，啟用了 PKCE，並設定了 Redict URL。注意: grant_types 有設定 authorization_cod 和 basic，代表可以支援 授權碼 換取 access_token 的 OAuth2 授權碼流程，又或是 client id 和 secret Base64 編碼後，用 Authorization header 的值固定。
 ```
 PUT /
 content-type: application/json
@@ -371,6 +376,7 @@ accept: application/json
 ```
 
 #### STU2.2
+##### 1. 上傳測試用的病人資料到 Aidbox，這些資料由 Health Samurai 團隊維護，存放在 Google Storage。
 ```
 POST /$load
 content-type: application/json
@@ -380,7 +386,7 @@ accept: application/json
   "source": "https://storage.googleapis.com/aidbox-public/smartbox/rows.ndjson.gz"
 }
 ```
-
+##### 2. 創建一個測試用的使用者 (test-user)，並將其與一個 Patient 資源 (test-pt-1) 相關聯。這個使用者可以用來登入 Aidbox。
 ```
 PUT /User/test-user
 content-type: application/json
@@ -401,7 +407,7 @@ accept: application/json
   "id": "test-user"
 }
 ```
-
+##### 3. 建立一個 Client 資源( 只是 Aidbox 內的 Client 配置，並不會實際創建 APP)，這是用來模擬執行 SMART on FHIR 驗證流程的應用程式（類似 OAuth 客戶端）。它支援 authorization_code 授權類型，啟用了 PKCE，並設定了 Redict URL。注意: grant_types 有設定 authorization_cod 和 basic，代表可以支援 授權碼 換取 access_token 的 OAuth2 授權碼流程，又或是 client id 和 secret Base64 編碼後，用 Authorization header 的值固定。
 ```
 PUT /
 content-type: application/json
@@ -446,7 +452,8 @@ accept: application/json
 ]
 ```
 
-#### GET EHR Launch URL
+#### GET EHR Launch URL，注意: 並不會真正創建 EHR App，只是 模擬 一個 EHR 啟動場景
+![alt text](/images/image4.png)
 ```
 POST /rpc
 content-type: application/json
