@@ -10,23 +10,6 @@ module SMARTAppLaunch
     title 'Standalone Launch With Patient Scope'
     short_description 'Demonstrate the ability to authorize an app using the Standalone Launch.'
 
-    input :standalone_tls_mode,
-          title: 'Standalone Launch Patient App HTTPS TLS verification',
-          type: 'radio',
-          default: 'true',
-          options: {
-            list_options: [
-              {
-                label: 'Enabled',
-                value: 'true'
-              },
-              {
-                label: 'Disabled',
-                value: 'false'
-              }
-            ]
-          }
-
     description %(
       # 背景說明
 
@@ -129,6 +112,10 @@ module SMARTAppLaunch
     puts "TLS Mode Value1: #{:standalone_tls_mode}\n\n"
     puts "TLS Mode Value2: #{config.options[:standalone_tls_mode]}\n\n"
     puts "TLS Mode Value3: #{config.inputs[:standalone_tls_mode]&.value}\n\n"
+
+    tls_mode = config.inputs[:standalone_tls_mode]&.value
+    puts "TLS Mode Value (actual): #{tls_mode.inspect}" # 確認是否正確讀取
+
     if config.options[:standalone_tls_mode]&.call == 'true'
       test from: :tls_version_test,
           id: :standalone_auth_tls,
