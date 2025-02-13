@@ -63,8 +63,24 @@ module SMARTAppLaunch
         },
         smart_credentials: {
           name: :standalone_smart_credentials
-        }
-
+        },
+        standalone_tls_mode: {
+          title: 'Whether to enable HTTPS TLS verification',
+          type: 'radio',
+          default: 'true',
+          options: {
+            list_options: [
+              {
+                label: 'Enabled',
+                value: 'true'
+              },
+              {
+                label: 'Disabled',
+                value: 'false'
+              }
+            ]
+          }
+        } 
       },
       outputs: {
         code: { name: :standalone_code },
@@ -90,6 +106,7 @@ module SMARTAppLaunch
                 :standalone_client_id,
                 :standalone_client_secret,
                 :standalone_requested_scopes
+                :standalone_tls_mode
 
     test from: :tls_version_test,
          id: :standalone_auth_tls,
