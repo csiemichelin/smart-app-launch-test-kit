@@ -111,7 +111,7 @@ module SMARTAppLaunch
         encounter_id: { name: :standalone_encounter_id },
         received_scopes: { name: :standalone_received_scopes },
         intent: { name: :standalone_intent },
-        smart_credentials: { name: :standalone_smart_credentials }
+        smart_credentials: { name: :standalone_smart_credentials },
         standalone_tls_mode: { name: :standalone_tls_mode }
       },
       requests: {
