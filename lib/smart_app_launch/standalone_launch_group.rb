@@ -150,6 +150,7 @@ module SMARTAppLaunch
             inputs: { url: { name: :smart_token_url } },
             options: {  minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
           }
+    end
     test from: :smart_token_exchange
     test from: :smart_token_response_body
     test from: :smart_token_response_headers
