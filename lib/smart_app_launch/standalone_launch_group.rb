@@ -138,7 +138,7 @@ module SMARTAppLaunch
          }
     test from: :smart_app_redirect
     test from: :smart_code_received
-    if inputs[:standalone_tls_mode] == 'true':  
+    if inputs[:standalone_tls_mode] == 'true' 
       test from: :tls_version_test,
           id: :standalone_token_tls,
           title: 'OAuth 2.0 token endpoint secured by transport layer security',
