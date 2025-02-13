@@ -145,8 +145,7 @@ module SMARTAppLaunch
          config: {
            inputs: { url: { name: :smart_authorization_url } },
            options: {  minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
-         },
-         skip_if: -> { inputs[:ehr_tls_mode] == 'false' }
+         }
     test from: :smart_app_redirect do
       input :launch
     end
@@ -161,8 +160,7 @@ module SMARTAppLaunch
          config: {
            inputs: { url: { name: :smart_token_url } },
            options: {  minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
-         },
-         skip_if: -> { inputs[:ehr_tls_mode] == 'false' }
+         }
     test from: :smart_token_exchange
     test from: :smart_token_response_body
     test from: :smart_token_response_headers
