@@ -125,18 +125,19 @@ module SMARTAppLaunch
                 :standalone_client_secret,
                 :standalone_requested_scopes
                 :standalone_tls_mode
-
-    test from: :tls_version_test,
-         id: :standalone_auth_tls,
-         title: 'OAuth 2.0 authorize endpoint secured by transport layer security',
-         description: %(
-           應用程式必須確保敏感資訊（authentication secrets、
-           authorization codes、tokens）只能透過 TLS 加密通道傳輸至已驗證的伺服器，以確保安全性。
-         ),
-         config: {
-           inputs: { url: { name: :smart_authorization_url } },
-           options: {  minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
-         }
+    if config.options[:standalone_tls_mode]&.call == true
+      test from: :tls_version_test,
+          id: :standalone_auth_tls,
+          title: 'OAuth 2.0 authorize endpoint secured by transport layer security',
+          description: %(
+            應用程式必須確保敏感資訊（authentication secrets、
+            authorization codes、tokens）只能透過 TLS 加密通道傳輸至已驗證的伺服器，以確保安全性。
+          ),
+          config: {
+            inputs: { url: { name: :smart_authorization_url } },
+            options: {  minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
+          }
+    end
     test from: :smart_app_redirect
     test from: :smart_code_received
     if config.options[:standalone_tls_mode]&.call == true
