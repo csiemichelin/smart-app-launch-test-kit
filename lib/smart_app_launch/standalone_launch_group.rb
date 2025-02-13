@@ -10,6 +10,23 @@ module SMARTAppLaunch
     title 'Standalone Launch With Patient Scope'
     short_description 'Demonstrate the ability to authorize an app using the Standalone Launch.'
 
+    input :standalone_tls_mode,
+          title: 'Whether to enable HTTPS TLS verification',
+          type: 'radio',
+          default: 'true',
+          options: {
+            list_options: [
+              {
+                label: 'Enabled',
+                value: 'true'
+              },
+              {
+                label: 'Disabled',
+                value: 'false'
+              }
+            ]
+          }
+
     description %(
       # 背景說明
 
