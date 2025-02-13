@@ -136,7 +136,7 @@ module SMARTAppLaunch
 
     test from: :smart_app_launch
     test from: :smart_launch_received
-    if config.options[:ehr_tls_mode]&.call == true
+    if config.options[:ehr_tls_mode]&.call == 'true'
       test from: :tls_version_test,
           id: :ehr_auth_tls,
           title: 'OAuth 2.0 authorize endpoint secured by transport layer security',
@@ -153,7 +153,7 @@ module SMARTAppLaunch
       input :launch
     end
     test from: :smart_code_received
-    if config.options[:ehr_tls_mode]&.call == true
+    if config.options[:ehr_tls_mode]&.call == 'true'
       test from: :tls_version_test,
           id: :ehr_token_tls,
           title: 'OAuth 2.0 token endpoint secured by transport layer security',
