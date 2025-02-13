@@ -464,7 +464,7 @@ authorization: Basic aW5mZXJuby1wYXRpZW50LXNtYXJ0LWFwcDp2ZXJ5c2VjcmV0
   "method": "aidbox.smart/get-launch-uri",
   "params": {
     "user": "test-user",
-    "iss": "https://192.168.1.16:8080/fhir",
+    "iss": "http://192.168.1.16:8080/fhir",
     "client": "inferno-patient-smart-app",
     "ctx": {
       "patient": "test-pt-1"
@@ -474,7 +474,7 @@ authorization: Basic aW5mZXJuby1wYXRpZW50LXNtYXJ0LWFwcDp2ZXJ5c2VjcmV0
 ```
 #### Inferno Input
 ```
-FHIR Endpoint: https://192.168.1.16:8080/fhir
+FHIR Endpoint: http://192.168.1.16:8080/fhir
 
 Standalone Client ID: inferno-patient-smart-app
 
