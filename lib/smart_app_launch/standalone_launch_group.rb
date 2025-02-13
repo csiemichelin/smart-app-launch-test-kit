@@ -10,6 +10,23 @@ module SMARTAppLaunch
     title 'Standalone Launch With Patient Scope'
     short_description 'Demonstrate the ability to authorize an app using the Standalone Launch.'
 
+    input :standalone_tls_mode,
+          title: 'Standalone Launch Patient App HTTPS TLS verification',
+          type: 'radio',
+          default: 'true',
+          options: {
+            list_options: [
+              {
+                label: 'Enabled',
+                value: 'true'
+              },
+              {
+                label: 'Disabled',
+                value: 'false'
+              }
+            ]
+          }
+
     description %(
       # 背景說明
 
@@ -63,24 +80,7 @@ module SMARTAppLaunch
         },
         smart_credentials: {
           name: :standalone_smart_credentials
-        },
-        standalone_tls_mode: {
-          title: 'Standalone Launch Patient App HTTPS TLS verification',
-          type: 'radio',
-          default: 'true',
-          options: {
-            list_options: [
-              {
-                label: 'Enabled',
-                value: 'true'
-              },
-              {
-                label: 'Disabled',
-                value: 'false'
-              }
-            ]
-          }
-        } 
+        }
       },
       outputs: {
         code: { name: :standalone_code },
@@ -94,8 +94,7 @@ module SMARTAppLaunch
         encounter_id: { name: :standalone_encounter_id },
         received_scopes: { name: :standalone_received_scopes },
         intent: { name: :standalone_intent },
-        smart_credentials: { name: :standalone_smart_credentials },
-        standalone_tls_mode: { name: :standalone_tls_mode }
+        smart_credentials: { name: :standalone_smart_credentials }
       },
       requests: {
         redirect: { name: :standalone_redirect },
@@ -114,8 +113,8 @@ module SMARTAppLaunch
     puts "TLS Mode Value3: #{config.inputs[:standalone_tls_mode]&.value}\n\n"
 
     tls_mode = config.inputs[:standalone_tls_mode]&.value
-    puts "TLS Mode Value (actual): #{tls_mode.inspect}" # 確認是否正確讀取
-
+    puts "TLS Mode Value: #{tls_mode.inspect}" # 確保能正確讀取
+    
     if config.options[:standalone_tls_mode]&.call == 'true'
       test from: :tls_version_test,
           id: :standalone_auth_tls,
