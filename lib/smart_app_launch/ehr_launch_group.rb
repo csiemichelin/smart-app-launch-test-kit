@@ -70,7 +70,6 @@ module SMARTAppLaunch
         smart_credentials: {
           name: :ehr_smart_credentials
         },
-        ,
         ehr_tls_mode: {
           title: 'Whether to enable HTTPS TLS verification',
           type: 'radio',
