@@ -13,7 +13,7 @@ module SMARTAppLaunch
     short_description 'Demonstrate the ability to authorize an app using the EHR Launch.'
 
     input :ehr_tls_mode,
-          title: 'Whether to enable HTTPS TLS verification',
+          title: 'Standalone Launch Patient App HTTPS TLS verification',
           type: 'radio',
           default: 'true',
           options: {
@@ -88,7 +88,7 @@ module SMARTAppLaunch
           name: :ehr_smart_credentials
         },
         ehr_tls_mode: {
-          title: 'Whether to enable HTTPS TLS verification',
+          title: 'EHR Launch Practitioner App HTTPS TLS verification',
           type: 'radio',
           default: 'true',
           options: {
@@ -146,6 +146,7 @@ module SMARTAppLaunch
            inputs: { url: { name: :smart_authorization_url } },
            options: {  minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
          }
+         skip: -> { inputs[:ehr_tls_mode] == 'false' }
     test from: :smart_app_redirect do
       input :launch
     end
@@ -161,6 +162,7 @@ module SMARTAppLaunch
            inputs: { url: { name: :smart_token_url } },
            options: {  minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
          }
+         skip: -> { inputs[:ehr_tls_mode] == 'false' }
     test from: :smart_token_exchange
     test from: :smart_token_response_body
     test from: :smart_token_response_headers

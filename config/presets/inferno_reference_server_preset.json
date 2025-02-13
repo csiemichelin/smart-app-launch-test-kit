@@ -44,7 +44,7 @@
     {
       "name": "standalone_tls_mode",
       "type": "radio",
-      "title": "Whether to enable HTTPS TLS verification",
+      "title": "Standalone Launch Patient App HTTPS TLS verification",
       "options": {
         "list_options": [
           {
@@ -62,7 +62,7 @@
     {
       "name": "ehr_tls_mode",
       "type": "radio",
-      "title": "Whether to enable HTTPS TLS verification",
+      "title": "EHR Launch Practitioner App HTTPS TLS verification",
       "options": {
         "list_options": [
           {
