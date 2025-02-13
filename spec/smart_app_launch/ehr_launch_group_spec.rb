@@ -21,7 +21,7 @@ RSpec.describe SMARTAppLaunch::EHRLaunchGroup do
       client_id: 'CLIENT_ID',
       requested_scopes: 'launch/patient patient/*.*',
       client_auth_type: 'public',
-      use_pkce: 'false'
+      use_pkce: 'true'
     }
   end
   let(:token_response) do

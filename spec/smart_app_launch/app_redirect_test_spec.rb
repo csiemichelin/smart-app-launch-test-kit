@@ -17,7 +17,7 @@ RSpec.describe SMARTAppLaunch::AppRedirectTest do
       requested_scopes: 'REQUESTED_SCOPES',
       url: url,
       smart_authorization_url: 'http://example.com/auth',
-      use_pkce: 'false'
+      use_pkce: 'true'
     }
   end
 
