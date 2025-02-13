@@ -272,7 +272,7 @@ accept: application/json
     "auth": {
       "authorization_code": {
         "pkce": true,
-        "redirect_uri": "http://192.168.1.16/custom/smart/redirect",
+        "redirect_uri": "https://192.168.1.16/custom/smart/redirect",
         "refresh_token": true,
         "token_format": "jwt",
         "access_token_expiration": 300
@@ -280,7 +280,7 @@ accept: application/json
     },
     "scope": ["launch/patient", "openid", "fhirUser", "offline_access", "patient/*.read"],
     "smart": {
-      "launch_uri": "http://192.168.1.16/custom/smart/launch"
+      "launch_uri": "https://192.168.1.16/custom/smart/launch"
     },
     "secret": "verysecret"
   },
@@ -349,7 +349,7 @@ accept: application/json
     "auth": {
       "authorization_code": {
         "pkce": true,
-        "redirect_uri": "http://192.168.1.16/custom/smart_stu2/redirect",
+        "redirect_uri": "https://192.168.1.16/custom/smart_stu2/redirect",
         "refresh_token": true,
         "token_format": "jwt",
         "access_token_expiration": 300
@@ -357,7 +357,7 @@ accept: application/json
     },
     "scope": ["launch/patient", "openid", "fhirUser", "offline_access", "patient/*.read"],
     "smart": {
-      "launch_uri": "http://192.168.1.16/custom/smart_stu2/launch"
+      "launch_uri": "https://192.168.1.16/custom/smart_stu2/launch"
     },
     "secret": "verysecret"
   },
@@ -426,7 +426,7 @@ accept: application/json
     "auth": {
       "authorization_code": {
         "pkce": true,
-        "redirect_uri": "http://192.168.1.16/custom/smart_stu2_2/redirect",
+        "redirect_uri": "https://192.168.1.16/custom/smart_stu2_2/redirect",
         "refresh_token": true,
         "token_format": "jwt",
         "access_token_expiration": 300
@@ -434,7 +434,7 @@ accept: application/json
     },
     "scope": ["launch/patient", "openid", "fhirUser", "offline_access", "patient/*.read"],
     "smart": {
-      "launch_uri": "http://192.168.1.16/custom/smart_stu2_2/launch"
+      "launch_uri": "https://192.168.1.16/custom/smart_stu2_2/launch"
     },
     "secret": "verysecret"
   },
@@ -464,7 +464,7 @@ authorization: Basic aW5mZXJuby1wYXRpZW50LXNtYXJ0LWFwcDp2ZXJ5c2VjcmV0
   "method": "aidbox.smart/get-launch-uri",
   "params": {
     "user": "test-user",
-    "iss": "http://192.168.1.16:8080/fhir",
+    "iss": "https://192.168.1.16:8080/fhir",
     "client": "inferno-patient-smart-app",
     "ctx": {
       "patient": "test-pt-1"
@@ -474,7 +474,7 @@ authorization: Basic aW5mZXJuby1wYXRpZW50LXNtYXJ0LWFwcDp2ZXJ5c2VjcmV0
 ```
 #### Inferno Input
 ```
-FHIR Endpoint: http://192.168.1.16:8080/fhir
+FHIR Endpoint: https://192.168.1.16:8080/fhir
 
 Standalone Client ID: inferno-patient-smart-app
 
