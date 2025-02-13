@@ -135,7 +135,7 @@ module SMARTAppLaunch
          config: {
            inputs: { url: { name: :smart_authorization_url } },
            options: {  minimum_allowed_version: OpenSSL::SSL::TLS1_2_VERSION }
-         },
+         }
     test from: :smart_app_redirect
     test from: :smart_code_received
     test from: :tls_version_test,
