@@ -125,7 +125,8 @@ module SMARTAppLaunch
                 :standalone_client_secret,
                 :standalone_requested_scopes
                 :standalone_tls_mode
-                
+    
+    puts "TLS Mode Value: #{config.options[:standalone_tls_mode]}\n\n"
     if config.options[:standalone_tls_mode]&.call == 'true'
       test from: :tls_version_test,
           id: :standalone_auth_tls,
