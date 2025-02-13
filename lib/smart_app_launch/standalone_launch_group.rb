@@ -112,6 +112,7 @@ module SMARTAppLaunch
         received_scopes: { name: :standalone_received_scopes },
         intent: { name: :standalone_intent },
         smart_credentials: { name: :standalone_smart_credentials }
+        standalone_tls_mode: -> { input('standalone_tls_mode') == 'true' }
       },
       requests: {
         redirect: { name: :standalone_redirect },
@@ -138,7 +139,7 @@ module SMARTAppLaunch
          }
     test from: :smart_app_redirect
     test from: :smart_code_received
-    if config.options[:standalone_tls_mode].call == true
+    if config.options[:standalone_tls_mode]&.call == true
       test from: :tls_version_test,
           id: :standalone_token_tls,
           title: 'OAuth 2.0 token endpoint secured by transport layer security',
