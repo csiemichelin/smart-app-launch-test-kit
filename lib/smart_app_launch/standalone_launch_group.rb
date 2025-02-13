@@ -126,7 +126,9 @@ module SMARTAppLaunch
                 :standalone_requested_scopes
                 :standalone_tls_mode
     
-    puts "TLS Mode Value: #{config.options[:standalone_tls_mode]}\n\n"
+    puts "TLS Mode Value1: #{:standalone_tls_mode}\n\n"
+    puts "TLS Mode Value2: #{config.options[:standalone_tls_mode]}\n\n"
+    puts "TLS Mode Value3: #{config.inputs[:standalone_tls_mode]}\n\n"
     if config.options[:standalone_tls_mode]&.call == 'true'
       test from: :tls_version_test,
           id: :standalone_auth_tls,
