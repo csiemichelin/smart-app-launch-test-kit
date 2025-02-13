@@ -16,6 +16,10 @@ services:
     depends_on:
       # - validator_service
       - hl7_validator_service
+    environment:
+      # 關閉SSL憑證
+      - DISABLE_VERIFY_PEER=true
+
   worker:
     build:
       context: ./

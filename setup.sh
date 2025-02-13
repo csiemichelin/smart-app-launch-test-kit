@@ -1,4 +1,4 @@
 #!/bin/sh
-docker compose pull
-docker compose build
-docker compose run inferno bundle exec inferno migrate
+sudo docker compose pull
+sudo docker compose build
+sudo docker compose run inferno bundle exec inferno migrate

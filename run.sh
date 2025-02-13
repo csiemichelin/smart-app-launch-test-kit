@@ -1,3 +1,3 @@
 #!/bin/sh
-docker compose build
-docker compose up
+sudo docker compose build
+sudo nohup docker compose up &
