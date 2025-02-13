@@ -82,7 +82,7 @@ module SMARTAppLaunch
           name: :standalone_smart_credentials
         },
         standalone_tls_mode: {
-          title: 'EHR Launch Practitioner App HTTPS TLS verification',
+          title: 'Standalone Launch Patient App HTTPS TLS verification',
           type: 'radio',
           default: 'true',
           options: {
