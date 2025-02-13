@@ -64,6 +64,7 @@ module SMARTAppLaunch
         smart_credentials: {
           name: :standalone_smart_credentials
         }
+
       },
       outputs: {
         code: { name: :standalone_code },
